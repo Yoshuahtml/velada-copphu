@@ -9,7 +9,14 @@ const form=document.querySelector('form'); // Browser form named properties are 
 for(const name of ['apellidos','representante','website'])Object.defineProperty(form,name,{value:form.elements.namedItem(name)});
 form.apellidos.value='<img src=x onerror=alert(1)> Peña';document.querySelector('[data-field=nombre]').value='Ana';document.querySelector('#add-child').click();assert.equal(document.querySelectorAll('.child').length,2);document.querySelectorAll('[data-field=nombre]')[1].value='José';
 form.dispatchEvent(new dom.window.Event('submit',{cancelable:true}));assert.equal(document.querySelector('#submit').disabled,true);await pause();assert.equal(calls.length,1);assert.equal(calls[0].payload.p_hijos.length,2);assert.equal(document.querySelector('#confirmation img'),null);assert(document.querySelector('#confirmation-title').textContent.includes('<img'));assert.equal(form.hidden,true);
-document.querySelector('#another-family').click();assert.equal(document.querySelectorAll('.child').length,1);form.apellidos.value='Peña';document.querySelector('[data-field=nombre]').value='Ana';fail=true;form.dispatchEvent(new dom.window.Event('submit',{cancelable:true}));await pause();assert.equal(form.hidden,false);assert.equal(form.apellidos.value,'Peña');assert.equal(document.querySelector('#form-error').hidden,false);
+// Reinicia los campos únicamente para probar otro escenario.
+form.reset();
+while (document.querySelectorAll('.child').length > 1) {
+  document.querySelector('.child button').click();
+}
+form.hidden = false;
+document.querySelector('#confirmation').hidden = true;
+document.querySelector('.form-intro').hidden = false;assert.equal(document.querySelectorAll('.child').length,1);form.apellidos.value='Peña';document.querySelector('[data-field=nombre]').value='Ana';fail=true;form.dispatchEvent(new dom.window.Event('submit',{cancelable:true}));await pause();assert.equal(form.hidden,false);assert.equal(form.apellidos.value,'Peña');assert.equal(document.querySelector('#form-error').hidden,false);
 for(let i=0;i<15;i++)document.querySelector('#add-child').click();assert.equal(document.querySelectorAll('.child').length,12);assert.equal(document.querySelector('#add-child').disabled,true);
 const admin=new JSDOM(readFileSync('admin/index.html','utf8'),{url:'https://test.invalid/admin/'});const d=admin.window.document;const family={id:'a',apellidos:'Peña <script>alert(1)</script>',representante:'Tutor',creado_en:'2026-12-14T13:00:00Z',hijos:[{nombre:'Ana',grado:'1º'}]};
 const query={select(){return this},order(){return this},limit(){return Promise.resolve({data:[family],error:null})}};
