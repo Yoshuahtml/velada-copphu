@@ -1,0 +1,3 @@
+// Cambia aquí los datos públicos del evento. No contiene credenciales administrativas.
+export const EVENTO = Object.freeze({colegio:'COPPHU',fecha:'Lunes 14 de diciembre de 2026 · 9:00 a. m.',lugar:'Auditorio Horacio Álvarez Saviñón · UNPHU',contacto:'25-0881@copphu.unphu.edu.do'});
+export function configurarPagina(){document.querySelectorAll('[data-colegio]').forEach(el=>el.textContent=EVENTO.colegio);document.querySelectorAll('[data-fecha]').forEach(el=>el.textContent=EVENTO.fecha);document.querySelectorAll('[data-lugar]').forEach(el=>el.textContent=EVENTO.lugar);document.querySelectorAll('[data-contacto]').forEach(el=>{el.href='mailto:'+EVENTO.contacto});}

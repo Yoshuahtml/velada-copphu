@@ -1,0 +1,23 @@
+{
+  "name": "velada-copphu",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test tests/domain.test.js && node tests/database.js && node tests/ui.js",
+    "qr": "node scripts/qr.js",
+    "package": "python3 scripts/package.py"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.119.2"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.6.0",
+    "jsdom": "31.0.1",
+    "qrcode": "1.5.4",
+    "vite": "8.3.8"
+  }
+}

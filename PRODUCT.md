@@ -1,0 +1,2 @@
+# Velada COPPHU
+Registro de familias por formulario; no verifica entrada física. Bienvenida pública y coordinación privada mediante Auth y RLS. Un coordinador: 25-0881@copphu.unphu.edu.do, solo después de verificar el correo. Evento confirmado por circular COPPHU-SD-024/2026-2027: lunes 14 de diciembre de 2026, 9:00 a. m., Auditorio Horacio Álvarez Saviñón de la UNPHU. Sin pagos ni datos adicionales de menores.

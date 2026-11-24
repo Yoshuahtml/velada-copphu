@@ -1,0 +1,4 @@
+Tanker Regular and Bespoke Serif Regular, Indian Type Foundry / Fontshare.
+Official distribution: https://www.fontshare.com/fonts/tanker and https://www.fontshare.com/fonts/bespoke-serif
+License: https://www.fontshare.com/licenses/itf-ffl
+Downloaded from the official Fontshare API/CDN. Retain original font files and license notices.
